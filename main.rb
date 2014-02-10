@@ -4,13 +4,19 @@ require 'sinatra/reloader' if development?
 set :public_folder => 'public'
 
 get '/' do
-    erb :home
+  erb :home
 end
 
 get '/about' do
-    erb :about
+  @title = 'All About This Website'
+  erb :about
 end
 
 get '/contact' do
-    erb :contact
+  @title = 'Contact Us'
+  erb :contact
+end
+
+not_found do
+  erb :not_found
 end
