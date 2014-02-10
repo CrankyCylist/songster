@@ -13,25 +13,33 @@ get '/contact' do
     erb :contact
 end
 __END__
-@@home
+@@layout
+<% title="Songs By Sinatra" %>
 <!doctype html>
 <html lan="en">
 <head>
-    <title>Songs By Sinatra</title>
+    <title><%= title %></title>
     <meta charset="utf-8">
 </head>
 <body>
     <header>
-        <h1>Songs By Sinatra</h1>
+        <h1><%= title %></h1>
         <nav>
             <ul>
                 <li><a href="/" title="Home">Home</a></li>
                 <li><a href="/about" title="About">About</a></li>
+                <li><a href="/contact" title="Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <section>
-        <p>Welcome to this website all about the songs of the great Frank Sinatra</p>
+        <%= yield %>
     </section>
 </body>
 </html>
+@@home
+<p>Welcome to this website all about the songs of the great Frank Sinatra</p>
+@@about
+<p>This site is a demonstration of how to build a website using Sinatra.</p>
+@@contact
+<p>If I was foolish, I would publish my email address here.<p>
